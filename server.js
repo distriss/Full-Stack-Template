@@ -16,3 +16,16 @@ MongoClient.connect(dbConnectionString)
         db = client.db(dbName)
         collection = db.collection('test')
     })
+
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
+
+
+
+
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server is running on port`)
+})
